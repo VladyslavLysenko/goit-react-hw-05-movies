@@ -1,16 +1,43 @@
+import React from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import { Home } from './Home/Home';
+import { Movies } from './Movies/Movies';
+import { MovieDetails } from './MovieDetails/MovieDetails';
+import styled from 'styled-components';
+export const MovieDB = require('moviedb')('bc8e4f8ef35238fae81789cd185c5d63');
+console.dir(MovieDB);
+//api.themoviedb.org/3/movie/550?api_key=bc8e4f8ef35238fae81789cd185c5d63
+
+const StyledLink = styled(NavLink)`
+  color: black;
+
+  &.active {
+    color: red;
+  }
+`;
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <header>
+        <nav>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/movies">Movies</StyledLink>
+        </nav>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        {/* <Route path="/movies/:movieId/cast" element={<Cast />} /> 
+           <Route path="/movies/:movieId/reviews" element={<Reviews />} />  */}
+
+        {/* <Route path="/trending/get-trending" element={<Trending />} />
+        <Route path="/search/search-movies" element={<SearchMovies />} />
+        <Route path="/movies/get-movie-credits" element={<MovieCredits />} />
+        <Route path="/movies/get-movie-reviews" element={<MovieReviews />} />  */}
+      </Routes>
+    </>
   );
 };
