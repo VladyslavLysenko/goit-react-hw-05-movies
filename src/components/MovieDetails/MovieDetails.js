@@ -1,5 +1,15 @@
 import React from 'react';
+import api from 'Fetch/Fetch';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { baseUrl, key } from 'Fetch/Fetch';
+export const MovieDetails = () => {
+  const { id } = useParams();
+  // const product = getProductById(id);
+  useEffect(() => {
+    api.FetchMovieDetails(baseUrl, id, key).then(resp => console.log(resp));
+  }, [id]);
 
-export const MovieDetails = ({ movie }) => {
-    return <h2>{movie.name}</h2>;
-}
+  //
+  return <h2>{id}</h2>;
+};

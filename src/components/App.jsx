@@ -3,10 +3,8 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 import { Home } from './Home/Home';
 import { Movies } from './Movies/Movies';
 import { MovieDetails } from './MovieDetails/MovieDetails';
+import { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
-export const MovieDB = require('moviedb')('bc8e4f8ef35238fae81789cd185c5d63');
-console.dir(MovieDB);
-//api.themoviedb.org/3/movie/550?api_key=bc8e4f8ef35238fae81789cd185c5d63
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -17,8 +15,10 @@ const StyledLink = styled(NavLink)`
 `;
 
 export const App = () => {
+
   return (
     <>
+      <Toaster />
       <header>
         <nav>
           <StyledLink to="/">Home</StyledLink>
