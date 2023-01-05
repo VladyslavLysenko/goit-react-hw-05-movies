@@ -11,7 +11,6 @@ export const Movies = () => {
 
   const handleSubmit = movieName => {
     api.FetchSearchMovies(baseUrl, key, movieName).then(response => {
-      console.log('result', response.results.length);
       if (response.results.length === 0) {
         toast.error('Sorry,we did not find...');
       } else {
