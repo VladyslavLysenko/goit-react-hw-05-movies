@@ -10,7 +10,7 @@ export async function FetchTrending(baseUrl, key, type) {
   }
 }
 
-export async function FetchSearchMovies(baseUrl, key, query) {
+ async function FetchSearchMovies(baseUrl, key, query) {
   const response = await fetch(
     `${baseUrl}/3/search/movie?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`
   );
@@ -19,7 +19,7 @@ export async function FetchSearchMovies(baseUrl, key, query) {
   }
 }
 
-export async function FetchMovieDetails(baseUrl, id, key) {
+ async function FetchMovieDetails(baseUrl, id, key) {
   const response = await fetch(
     `${baseUrl}/3/movie/${id}?api_key=${key}&language=en-US`
   );
@@ -28,7 +28,7 @@ export async function FetchMovieDetails(baseUrl, id, key) {
   }
 }
 // FetchCredits - інфо по акторам
-export async function FetchCredits(baseUrl, key, id) {
+ async function FetchCredits(baseUrl, key, id) {
   const response = await fetch(
     `${baseUrl}/3/movie/${id}/credits?api_key=${key}=en-US`
   );
@@ -36,7 +36,7 @@ export async function FetchCredits(baseUrl, key, id) {
     return response.json();
   }
 }
-export async function FetchRewiews(baseUrl, key, id) {
+ async function FetchRewiews(baseUrl, key, id) {
   const response = await fetch(
     `${baseUrl}/3/movie/${id}?api_key=${key}&language=en-US`
   );

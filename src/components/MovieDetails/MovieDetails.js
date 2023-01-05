@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { baseUrl, key } from 'Fetch/Fetch';
 export const MovieDetails = () => {
   const { id } = useParams();
-  // const product = getProductById(id);
   useEffect(() => {
     api.FetchMovieDetails(baseUrl, id, key).then(resp => console.log(resp));
   }, [id]);
