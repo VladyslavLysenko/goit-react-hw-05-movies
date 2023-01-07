@@ -6,7 +6,7 @@ import { baseUrl, key } from 'Fetch/Fetch';
 import toast from 'react-hot-toast';
 import api from 'Fetch/Fetch';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
 
   const handleSubmit = movieName => {
@@ -42,3 +42,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

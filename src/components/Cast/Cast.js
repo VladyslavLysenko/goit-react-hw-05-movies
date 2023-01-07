@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { CastItem } from './CastItem';
 import toast from 'react-hot-toast';
 
-export const Cast = () => {
+ const Cast = () => {
   const [casts, setCasts] = useState([]);
   const { movieId } = useParams();
   useEffect(() => {
@@ -32,3 +32,5 @@ export const Cast = () => {
     </section>
   );
 };
+
+export default Cast;

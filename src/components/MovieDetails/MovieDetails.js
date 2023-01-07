@@ -6,7 +6,7 @@ import { baseUrl, key } from 'Fetch/Fetch';
 import { Link, Outlet } from 'react-router-dom';
 import { BackLink } from 'components/BackLink';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [film, setFilm] = useState({ genres: [] });
   const { movieId } = useParams();
 
@@ -59,3 +59,5 @@ export const MovieDetails = () => {
     </div>
   );
 };
+
+export default MovieDetails;

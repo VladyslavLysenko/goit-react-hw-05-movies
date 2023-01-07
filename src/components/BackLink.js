@@ -1,4 +1,3 @@
-// import { HiArrowLeft } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 

@@ -4,7 +4,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import toast from 'react-hot-toast';
 import api, { baseUrl, key, type } from 'Fetch/Fetch';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     api
@@ -25,3 +25,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

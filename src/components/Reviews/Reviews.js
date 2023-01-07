@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { ReviewsItem } from './ReviewsItem';
 import toast from 'react-hot-toast';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
   useEffect(() => {
@@ -37,3 +37,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;
