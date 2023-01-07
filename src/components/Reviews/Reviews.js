@@ -18,7 +18,7 @@ export const Reviews = () => {
           position: 'top-center',
         });
       });
-  }, []);
+  }, [movieId]);
 
   console.log(reviews);
   return (

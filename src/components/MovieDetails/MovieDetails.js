@@ -1,13 +1,18 @@
 import React from 'react';
 import api from 'Fetch/Fetch';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { baseUrl, key } from 'Fetch/Fetch';
 import { Link, Outlet } from 'react-router-dom';
+import { BackLink } from 'components/BackLink';
 
 export const MovieDetails = () => {
   const [film, setFilm] = useState({ genres: [] });
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
+
   useEffect(() => {
     api.FetchMovieDetails(baseUrl, movieId, key).then(response => {
       setFilm({
@@ -26,6 +31,7 @@ export const MovieDetails = () => {
 
   return (
     <div>
+      <BackLink to={backLinkHref}>Go back</BackLink>
       <img
         src={'https://www.themoviedb.org/t/p/w400' + film.poster_path}
         alt={film.title}

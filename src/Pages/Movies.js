@@ -10,27 +10,29 @@ export const Movies = () => {
   const [movies, setMovies] = useState([]);
 
   const handleSubmit = movieName => {
-    api.FetchSearchMovies(baseUrl, key, movieName).then(response => {
-      if (response.results.length === 0) {
-        toast.error('Sorry,we did not find...');
-      } else {
-        const movieApiArr = [];
-        response.results
-          .map(item =>
+    api
+      .FetchSearchMovies(baseUrl, key, movieName)
+      .then(response => {
+        if (response.results.length === 0) {
+          toast.error('Sorry,we did not find...');
+        } else {
+          const movieApiArr = [];
+          response.results.map(item =>
             movieApiArr.push({
               id: item.id,
               title: item.title,
             })
-          )
-          .catch(() => {
-            toast.error('Ups... Something is wrong.', {
-              duration: 4000,
-              position: 'top-center',
-            });
-          });;
-        setMovies(...movies, movieApiArr);
-      }
-    });
+          );
+
+          setMovies(...movies, movieApiArr);
+        }
+      })
+      .catch(() => {
+        toast.error('Ups... Something is wrong.', {
+          duration: 4000,
+          position: 'top-center',
+        });
+      });
   };
 
   return (
