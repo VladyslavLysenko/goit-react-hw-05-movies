@@ -36,9 +36,10 @@ async function FetchCredits(baseUrl, key, id) {
     return response.json();
   }
 }
-async function FetchRewiews(baseUrl, key, id) {
+async function FetchReviews(baseUrl, key, id) {
   const response = await fetch(
-    `${baseUrl}/3/movie/${id}?api_key=${key}&language=en-US`
+    `${baseUrl}/3/movie/${id}/reviews?api_key=${key}&language=en-US&page=1`
+
   );
   if (response.ok) {
     return response.json();
@@ -50,7 +51,7 @@ const api = {
   FetchSearchMovies,
   FetchMovieDetails,
   FetchCredits,
-  FetchRewiews,
+  FetchReviews,
 };
 
 export default api;

@@ -15,25 +15,23 @@ export const Movies = () => {
         toast.error('Sorry,we did not find...');
       } else {
         const movieApiArr = [];
-        response.results.map(item =>
-          movieApiArr.push({
-            id: item.id,
-            title: item.title,
-          })
-        );
+        response.results
+          .map(item =>
+            movieApiArr.push({
+              id: item.id,
+              title: item.title,
+            })
+          )
+          .catch(() => {
+            toast.error('Ups... Something is wrong.', {
+              duration: 4000,
+              position: 'top-center',
+            });
+          });;
         setMovies(...movies, movieApiArr);
       }
     });
-
-    // const getMovies = () => {
-    //   return movies;
-    // };
-
-    // const getMovieById = movieId => {
-    //   return movies.find(item => item.id === movieId);
-    // };
   };
-  console.log(movies);
 
   return (
     <>
