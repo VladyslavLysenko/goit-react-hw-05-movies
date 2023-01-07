@@ -18,20 +18,22 @@ export const Reviews = () => {
           position: 'top-center',
         });
       });
-  }, [movieId]);
+  }, []);
 
   console.log(reviews);
   return (
     <>
-  
+      {reviews.length ? (
         <ul>
-          {reviews.map(({ id,author,content }) => (
+          {reviews.map(({ id, author, content }) => (
             <li key={id}>
               <ReviewsItem author={author} content={content} />
             </li>
           ))}
         </ul>
-    
+      ) : (
+        <p>We do not have any reviews for this movie.</p>
+      )}
     </>
   );
 };

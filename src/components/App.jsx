@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
-import { Home } from './Home/Home';
-import { Movies } from './Movies/Movies';
+import { Home } from '../Pages/Home/Home';
+import { Movies } from '../Pages/Movies/Movies';
 import { MovieDetails } from './MovieDetails/MovieDetails';
 import { Toaster } from 'react-hot-toast';
 import { Cast } from './Cast/Cast';

@@ -19,7 +19,7 @@ export const MovieDetails = () => {
         overview: response.overview,
       });
     });
-  }, []);
+  }, [movieId]);
 
   let genres = film.genres.map(item => item.name);
   genres = genres.join(', ');
