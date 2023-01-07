@@ -3,48 +3,54 @@ import api from 'Fetch/Fetch';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { baseUrl, key } from 'Fetch/Fetch';
-  let ganr = [];
-export const MovieDetails = () => {
-    // const [film, setFilm] = useState(null);
-  const [img, setImg] = useState('');
-  const [title, setTitle] = useState('');
-  let [release, setRelease] = useState('')
-  const [score, setScore] = useState('');
-  const [overview, setOverview] = useState('');
-  const [genres, setGenres] = useState([])
-  const { movieId } = useParams();
+import { Link, Outlet } from 'react-router-dom';
 
- 
-  console.log(movieId);
+export const MovieDetails = () => {
+  const [film, setFilm] = useState({ genres: [] });
+  const { movieId } = useParams();
   useEffect(() => {
     api.FetchMovieDetails(baseUrl, movieId, key).then(response => {
-      console.log(response);
-      // setFilm(response);
-      setImg(response.poster_path);
-      setTitle(response.title);
-      setRelease(response.release_date);
-      setScore(response.vote_average);
-      setOverview(response.overview);
-      ganr.push(response.genres.map(item => item.name))  ;
-      // setGenres(response.genres.map(item => setGenres(item.name)));
-
-     
+      setFilm({
+        title: response.title,
+        poster_path: response.poster_path,
+        genres: response.genres,
+        release_date: response.release_date,
+        vote_average: response.vote_average,
+        overview: response.overview,
+      });
     });
   }, []);
-console.log('ganr',ganr);
-  //
+
+  let genres = film.genres.map(item => item.name);
+  genres = genres.join(', ');
+  console.log(genres);
+
   return (
     <div>
-      <img src={'https://www.themoviedb.org/t/p/w400' + img} alt={title} />
+      <img
+        src={'https://www.themoviedb.org/t/p/w400' + film.poster_path}
+        alt={film.title}
+      />
       <h2>
-        {title} , release:{' '}
-        {release ? (release = new Date(release).getFullYear()) : (release = '')}
+        {film.title} , release:{' '}
+        {film.release_date
+          ? (film.release_date = new Date(film.release_date).getFullYear())
+          : (film.release_date = '')}
       </h2>
-      <p>User score: {score}</p>
+      <p>User score: {film.vote_average}</p>
       <h2>Overview</h2>
-      <p>{overview}</p>
+      <p>{film.overview}</p>
       <h2>Genres</h2>
-      <p>{ganr}</p>
+      <p>{genres}</p>
+      <ul>
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 };

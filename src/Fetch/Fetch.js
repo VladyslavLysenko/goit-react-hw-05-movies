@@ -30,7 +30,7 @@ async function FetchMovieDetails(baseUrl, id, key) {
 // FetchCredits - інфо по акторам
 async function FetchCredits(baseUrl, key, id) {
   const response = await fetch(
-    `${baseUrl}/3/movie/${id}/credits?api_key=${key}=en-US`
+    `${baseUrl}/3/movie/${id}/credits?api_key=${key}&language=en-US`
   );
   if (response.ok) {
     return response.json();

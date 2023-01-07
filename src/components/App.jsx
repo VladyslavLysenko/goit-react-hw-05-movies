@@ -4,6 +4,7 @@ import { Home } from './Home/Home';
 import { Movies } from './Movies/Movies';
 import { MovieDetails } from './MovieDetails/MovieDetails';
 import { Toaster } from 'react-hot-toast';
+import { Cast } from './Cast/Cast';
 import styled from 'styled-components';
 
 const StyledLink = styled(NavLink)`
@@ -28,9 +29,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
-        {/* <Route path="/movies/:movieId/cast" element={<Cast />} /> 
-           <Route path="/movies/:movieId/reviews" element={<Reviews />} />  */}
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          {/* <Route path="reviews" element={<Reviews />} /> */}
+        </Route>
 
         {/* <Route path="/trending/get-trending" element={<Trending />} />
         <Route path="/search/search-movies" element={<SearchMovies />} />
