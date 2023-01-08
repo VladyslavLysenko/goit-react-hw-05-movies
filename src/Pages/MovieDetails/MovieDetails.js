@@ -1,7 +1,7 @@
 import React from 'react';
 import api from 'Fetch/Fetch';
 import { useParams, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { baseUrl, key } from 'Fetch/Fetch';
 import {  Outlet } from 'react-router-dom';
 import { BackLink } from 'components/BackLink';
@@ -66,7 +66,9 @@ const MovieDetails = () => {
           </li>
         </ul>
       </AdditionalInfo>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

@@ -24,7 +24,7 @@ const Movies = () => {
             })
           );
 
-          setMovies(...movies, movieApiArr);
+          setMovies(movieApiArr);
         }
       })
       .catch(() => {

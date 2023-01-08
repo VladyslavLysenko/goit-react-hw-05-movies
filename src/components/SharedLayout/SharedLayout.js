@@ -9,7 +9,7 @@ export const SharedLayout = () => {
       <Toaster />
       <CommonBox>
         <Nav>
-          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/" end>Home</StyledLink>
           <StyledLink to="/movies">Movies</StyledLink>
         </Nav>
       </CommonBox>
