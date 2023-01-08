@@ -1,4 +1,5 @@
-import { MoviesListItem } from './MoviesListItem/MoviesListItem';
+import PropTypes from 'prop-types';
+import { MoviesListItem } from './MoviesListItem';
 export const MoviesList = ({ movies }) => {
   return (
     <ul>
@@ -9,4 +10,8 @@ export const MoviesList = ({ movies }) => {
       ))}
     </ul>
   );
+};
+
+MoviesList.propTypes = {
+  item: PropTypes.object,
 };

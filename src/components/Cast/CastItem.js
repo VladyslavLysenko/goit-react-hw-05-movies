@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const CastItem = ({ item }) => {
   return (
     <>
@@ -7,8 +9,12 @@ export const CastItem = ({ item }) => {
         width="100"
       />
 
-      <p>{item.name}</p>
-      <p>{item.character}</p>
+      <p>Name:{item.name}</p>
+      <p>Character:{item.character}</p>
     </>
   );
+};
+
+CastItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };

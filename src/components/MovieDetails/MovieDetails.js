@@ -11,7 +11,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     api.FetchMovieDetails(baseUrl, movieId, key).then(response => {
@@ -28,6 +28,7 @@ const MovieDetails = () => {
 
   let genres = film.genres.map(item => item.name);
   genres = genres.join(', ');
+  let releaseDate = new Date(film.release_date);
 
   return (
     <div>
@@ -37,10 +38,10 @@ const MovieDetails = () => {
         alt={film.title}
       />
       <h2>
-        {film.title} , release:{' '}
-        {film.release_date
-          ? (film.release_date = new Date(film.release_date).getFullYear())
-          : (film.release_date = '')}
+        {film.title} , release:
+        {releaseDate
+          ? (releaseDate = new Date(releaseDate).getFullYear())
+          : (releaseDate = '')}
       </h2>
       <p>User score: {film.vote_average}</p>
       <h2>Overview</h2>
@@ -49,10 +50,14 @@ const MovieDetails = () => {
       <p>{genres}</p>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={{ from: backLinkHref }}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={{ from: backLinkHref }}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <Outlet />

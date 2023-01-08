@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import PropTypes from 'prop-types';
 
 export const SearchBar = ({ onSubmit }) => {
   const [movieTitle, setMovieTitle] = useState('');
@@ -27,4 +28,8 @@ export const SearchBar = ({ onSubmit }) => {
       <button type="submit">Search movies</button>
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };

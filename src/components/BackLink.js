@@ -17,10 +17,5 @@ const StyledLink = styled(Link)`
 `;
 
 export const BackLink = ({ to, children }) => {
-  return (
-    <StyledLink to={to}>
-      
-      {children}
-    </StyledLink>
-  );
+  return <StyledLink to={to}>{children}</StyledLink>;
 };
