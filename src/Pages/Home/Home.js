@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import toast from 'react-hot-toast';
 import api, { baseUrl, key, type } from 'Fetch/Fetch';
+import { Title } from './Home.styled';
+
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -20,7 +22,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Trending today</h1>
+      <Title>Trending today</Title>
       <MoviesList movies={movies} />
     </div>
   );

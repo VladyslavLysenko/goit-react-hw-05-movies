@@ -1,27 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import { Suspense } from 'react';
-import styled from 'styled-components';
 import { Toaster } from 'react-hot-toast';
-
-const StyledLink = styled(NavLink)`
-  color: black;
-
-  &.active {
-    color: red;
-  }
-`;
+import { CommonBox, Nav, StyledLink } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
     <div>
       <Toaster />
-      <header>
-        <nav>
+      <CommonBox>
+        <Nav>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/movies">Movies</StyledLink>
-        </nav>
-      </header>
+        </Nav>
+      </CommonBox>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>

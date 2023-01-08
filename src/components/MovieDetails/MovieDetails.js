@@ -3,8 +3,9 @@ import api from 'Fetch/Fetch';
 import { useParams, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { baseUrl, key } from 'Fetch/Fetch';
-import { Link, Outlet } from 'react-router-dom';
+import {  Outlet } from 'react-router-dom';
 import { BackLink } from 'components/BackLink';
+import { AdditionalInfo, Detail, DetailsWrapper, Float, StyledLink, Title } from './MovieDetails.stytled';
 
 const MovieDetails = () => {
   const [film, setFilm] = useState({ genres: [] });
@@ -33,33 +34,38 @@ const MovieDetails = () => {
   return (
     <div>
       <BackLink to={backLinkHref}>Go back</BackLink>
-      <img
+      <Float
         src={'https://www.themoviedb.org/t/p/w400' + film.poster_path}
         alt={film.title}
       />
-      <h2>
-        {film.title} , release:
-        {releaseDate
-          ? (releaseDate = new Date(releaseDate).getFullYear())
-          : (releaseDate = '')}
-      </h2>
-      <p>User score: {film.vote_average}</p>
-      <h2>Overview</h2>
-      <p>{film.overview}</p>
-      <h2>Genres</h2>
-      <p>{genres}</p>
-      <ul>
-        <li>
-          <Link to="cast" state={{ from: backLinkHref }}>
-            Cast
-          </Link>
-        </li>
-        <li>
-          <Link to="reviews" state={{ from: backLinkHref }}>
-            Reviews
-          </Link>
-        </li>
-      </ul>
+      <DetailsWrapper>
+        <Title>
+          {film.title} , release:
+          {releaseDate
+            ? (releaseDate = new Date(releaseDate).getFullYear())
+            : (releaseDate = '')}
+        </Title>
+        <Detail>User score: {film.vote_average}</Detail>
+        <Title>Overview</Title>
+        <Detail>{film.overview}</Detail>
+        <Title>Genres</Title>
+        <Detail>{genres}</Detail>
+      </DetailsWrapper>
+      <AdditionalInfo>
+        <h2>Additional info</h2>
+        <ul>
+          <li>
+            <StyledLink to="cast" state={{ from: backLinkHref }}>
+              Cast
+            </StyledLink>
+          </li>
+          <li>
+            <StyledLink to="reviews" state={{ from: backLinkHref }}>
+              Reviews
+            </StyledLink>
+          </li>
+        </ul>
+      </AdditionalInfo>
       <Outlet />
     </div>
   );

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
+import { StyledLink } from './MoviesListItem.styled';
 
 export const MoviesListItem = ({ movie }) => {
-  return <Link to={`/movies/${movie.id}`}>{movie.title}</Link>;
+  return <StyledLink to={`/movies/${movie.id}`}>{movie.title}</StyledLink>;
 };
 
 MoviesListItem.propTypes = {
-  item: PropTypes.object,
+  movie: PropTypes.object,
 };

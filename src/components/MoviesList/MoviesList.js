@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
+import { MovieListUl, MovieItem } from './MoviesList.styled';
 import { MoviesListItem } from './MoviesListItem';
 export const MoviesList = ({ movies }) => {
   return (
-    <ul>
+    <MovieListUl>
       {movies.map(item => (
-        <li key={item.id}>
+        <MovieItem key={item.id}>
           <MoviesListItem movie={item} />
-        </li>
+        </MovieItem>
       ))}
-    </ul>
+    </MovieListUl>
   );
 };
 
 MoviesList.propTypes = {
-  item: PropTypes.object,
+  movies: PropTypes.array.isRequired,
 };

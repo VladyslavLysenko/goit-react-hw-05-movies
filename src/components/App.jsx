@@ -2,8 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { GlobalStyle } from './GlobalStyle';
 
-const Home = lazy(() => import('../Pages/Home'));
+const Home = lazy(() => import('../Pages/Home/Home'));
 const Movies = lazy(() => import('../Pages/Movies'));
 const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('./Cast/Cast'));
@@ -23,6 +24,7 @@ export const App = () => {
         </Route>
         <Route path="*" element={<Home />} />
       </Routes>
+      <GlobalStyle/>
     </>
   );
 };

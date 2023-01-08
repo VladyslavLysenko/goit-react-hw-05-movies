@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
+import { ActorsImg, ActorsWrapper, Name } from './CastItem.styled';
 
 export const CastItem = ({ item }) => {
   return (
     <>
-      <img
-        src={'https://www.themoviedb.org/t/p/w400' + item.profile_path}
-        alt={item.name}
-        width="100"
-      />
+      <ActorsWrapper>
+        <ActorsImg
+          src={'https://www.themoviedb.org/t/p/w400' + item.profile_path}
+          alt={item.name}
+          width="100"
+        />
 
-      <p>Name:{item.name}</p>
-      <p>Character:{item.character}</p>
+        <Name>Name:{item.name}</Name>
+        <Name>Character:{item.character}</Name>
+      </ActorsWrapper>
     </>
   );
 };
