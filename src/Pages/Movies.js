@@ -9,7 +9,10 @@ import api from 'Fetch/Fetch';
 const Movies = () => {
   const [movies, setMovies] = useState([]);
 
+
+  
   const handleSubmit = movieName => {
+
     api
       .FetchSearchMovies(baseUrl, key, movieName)
       .then(response => {
@@ -19,6 +22,7 @@ const Movies = () => {
           const movieApiArr = [];
           response.results.map(item =>
             movieApiArr.push({
+              poster_path: item.poster_path,
               id: item.id,
               title: item.title,
             })

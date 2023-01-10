@@ -4,6 +4,7 @@ import { baseUrl, key } from 'Fetch/Fetch';
 import { useParams } from 'react-router-dom';
 import { CastItem } from './CastItem';
 import toast from 'react-hot-toast';
+import { Wrapper, Item } from '../MoviesList/MoviesList.styled';
 
  const Cast = () => {
   const [casts, setCasts] = useState([]);
@@ -22,13 +23,13 @@ import toast from 'react-hot-toast';
 
   return (
     <section>
-      <ul>
+      <Wrapper>
         {casts.map(item => (
-          <li key={item.id}>
+          <Item key={item.id}>
             <CastItem item={item} />
-          </li>
+          </Item>
         ))}
-      </ul>
+      </Wrapper>
     </section>
   );
 };

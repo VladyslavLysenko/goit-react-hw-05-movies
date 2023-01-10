@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const StyledLink = styled(NavLink)`
+export const StyledLink = styled(Link)`
   color: black;
   text-decoration: none;
   font-size: 20px;
@@ -9,4 +9,8 @@ export const StyledLink = styled(NavLink)`
   :hover {
     color: orangered;
   }
+`;
+
+export const MovieTitle = styled.div`
+  text-align: center;
 `;

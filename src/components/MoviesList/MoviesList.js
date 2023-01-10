@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
-import { MovieListUl, MovieItem } from './MoviesList.styled';
+import {  Wrapper, Item } from './MoviesList.styled';
 import { MoviesListItem } from './MoviesListItem';
 export const MoviesList = ({ movies }) => {
   return (
-    <MovieListUl>
+    <Wrapper>
       {movies.map(item => (
-        <MovieItem key={item.id}>
-          <MoviesListItem movie={item} />
-        </MovieItem>
+        <Item key={item.id}>
+          <Item>
+            <MoviesListItem movie={item} />
+          </Item>
+        </Item>
       ))}
-    </MovieListUl>
+    </Wrapper>
   );
 };
 
