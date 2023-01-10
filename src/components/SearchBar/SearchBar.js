@@ -18,11 +18,11 @@ export const SearchBar = ({ onSubmit }) => {
     onSubmit(movieTitle);
     setSearchParams({ q: movieTitle });
   };
-  useEffect(() => {
-    if (query) {
-      onSubmit(query);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (query) {
+  //     onSubmit(query);
+  //   }
+  // }, []);
 
   return (
     <form onSubmit={handleSubmit} method="get">

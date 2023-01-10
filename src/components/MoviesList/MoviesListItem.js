@@ -6,7 +6,6 @@ import { StyledLink, MovieTitle } from './MoviesListItem.styled';
 
 export const MoviesListItem = ({ movie }) => {
   const location = useLocation();
-// console.log(movie);
   return (
     <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
       <img
