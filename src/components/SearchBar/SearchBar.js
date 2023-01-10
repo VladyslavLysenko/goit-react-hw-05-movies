@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { Input, InputBox, InputBtn } from './SearchBar.styled';
 
 export const SearchBar = ({ onSubmit }) => {
