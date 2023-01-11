@@ -17,8 +17,8 @@ export const CastItem = ({ item }) => {
           width="100"
           height='auto'
         />
-        <Name>Name:{item.name}</Name>
-        <Name>Character:{item.character}</Name>{' '}
+        <Name>Name:{item.name?item.name: 'Вибачте ,нічого не зайдено'}</Name>
+        <Name>Character:{item.character?item.character:'Вибачте ,нічого не зайдено'}</Name>{' '}
       </ActorsWrapper>
     </>
   );
