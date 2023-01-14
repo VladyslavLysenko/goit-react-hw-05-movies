@@ -15,14 +15,12 @@ export const SearchBar = ({ onSubmit }) => {
       toast('Please enter Movie Title here');
       return;
     }
-    onSubmit(movieTitle);
     setSearchParams({ q: movieTitle });
   };
   useEffect(() => {
     if (query) {
       onSubmit(query);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   return (

@@ -20,15 +20,20 @@ import { Wrapper, Item } from '../MoviesList/MoviesList.styled';
         });
       });;
   }, [movieId]);
+  
 
   return (
     <section>
       <Wrapper>
-        {casts.map(item => (
-          <Item key={item.id}>
-            <CastItem item={item} />
-          </Item>
-        ))}
+        {casts.length ? (
+          casts.map(item => (
+            <Item key={item.id}>
+              <CastItem item={item} />
+            </Item>
+          ))
+        ) : (
+          <p>We do not have any casts for this movie.</p>
+        )}
       </Wrapper>
     </section>
   );
