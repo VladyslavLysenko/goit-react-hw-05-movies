@@ -17,6 +17,6 @@ export const MoviesListItem = ({ movie }) => {
   );
 };
 
-MoviesListItem.propTypes = {
+MoviesListItem.propTypes = {    
   movie: PropTypes.object,
 };

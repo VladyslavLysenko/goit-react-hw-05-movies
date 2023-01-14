@@ -1,12 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
 import { Input, InputBox, InputBtn } from './SearchBar.styled';
 
-export const SearchBar = ({ onSubmit }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('q') ?? '';
+export const SearchBar = () => {
+  const [_, setSearchParams] = useSearchParams();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -17,24 +14,15 @@ export const SearchBar = ({ onSubmit }) => {
     }
     setSearchParams({ q: movieTitle });
   };
-  useEffect(() => {
-    if (query) {
-      onSubmit(query);
-    }
-  }, [query]);
 
   return (
     <form onSubmit={handleSubmit} method="get">
       <InputBox>
         <label>
-          <Input name="q" defaultValue={query} />
+          <Input name="q" />
         </label>
         <InputBtn type="submit">Search movies</InputBtn>
       </InputBox>
     </form>
   );
-};
-
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
