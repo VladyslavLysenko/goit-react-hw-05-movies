@@ -1,6 +1,5 @@
 import React from 'react';
 import { MoviesList } from 'components/MoviesList/MoviesList';
-import { SearchBar } from 'components/SearchBar/SearchBar';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { baseUrl, key } from 'Fetch/Fetch';
@@ -9,9 +8,15 @@ import api from 'Fetch/Fetch';
 
 import { useSearchParams } from 'react-router-dom';
 
+import {
+  Input,
+  InputBox,
+  InputBtn,
+} from '../components/SearchBar/SearchBar.styled';
+
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [searchParams, _] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('q') ?? '';
 
   const handleSubmit = movieName => {
@@ -47,9 +52,26 @@ const Movies = () => {
     }
   }, [query]);
 
+  const handleSubmitForm = e => {
+    e.preventDefault();
+    let movieTitle = e.target.q.value;
+    if (movieTitle.trim() === '') {
+      toast('Please enter Movie Title here');
+      return;
+    }
+    setSearchParams({ q: movieTitle });
+  };
+
   return (
     <>
-      <SearchBar />
+      <form onSubmit={handleSubmitForm} method="get">
+        <InputBox>
+          <label>
+            <Input name="q" />
+          </label>
+          <InputBtn type="submit">Search movies</InputBtn>
+        </InputBox>
+      </form>
       <MoviesList movies={movies} />
     </>
   );

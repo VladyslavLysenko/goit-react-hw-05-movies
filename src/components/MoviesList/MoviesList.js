@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import {  Wrapper, Item } from './MoviesList.styled';
+import { Wrapper, Item } from './MoviesList.styled';
 import { MoviesListItem } from './MoviesListItem';
+
 export const MoviesList = ({ movies }) => {
-  console.log(movies);
   return (
     <Wrapper>
       {movies.map(item => (
